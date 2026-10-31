@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState } from 'react';
-import { MessageSquare, ExternalLink, Check, Camera, Image as ImageIcon } from 'lucide-react';
+import { MessageSquare, ExternalLink, Check, Camera, Download, Image as ImageIcon } from 'lucide-react';
 import { Product } from '@/types';
 import { buildWhatsAppChatUrl, generateInquiryMessage, trackInquiryClick } from '@/lib/whatsapp';
 
@@ -42,23 +42,67 @@ export const WhatsAppInquiryButton: React.FC<WhatsAppInquiryButtonProps> = ({
     businessWhatsappNumber,
   });
 
+  const [photoCopiedToast, setPhotoCopiedToast] = useState(false);
+  const rawImg = product.images?.[0]?.url || '/images/products/lg-refrigerator.jpg';
+
+  const copyPhotoToClipboard = async (imgUrl: string): Promise<boolean> => {
+    try {
+      const res = await fetch(imgUrl);
+      const blob = await res.blob();
+      const img = new window.Image();
+      const objectUrl = URL.createObjectURL(blob);
+
+      return new Promise((resolve) => {
+        img.onload = () => {
+          const canvas = document.createElement('canvas');
+          canvas.width = img.naturalWidth;
+          canvas.height = img.naturalHeight;
+          const ctx = canvas.getContext('2d');
+          ctx?.drawImage(img, 0, 0);
+          canvas.toBlob(async (pngBlob) => {
+            URL.revokeObjectURL(objectUrl);
+            if (pngBlob && typeof navigator !== 'undefined' && navigator.clipboard?.write) {
+              try {
+                await navigator.clipboard.write([
+                  new ClipboardItem({ 'image/png': pngBlob }),
+                ]);
+                resolve(true);
+                return;
+              } catch {
+                resolve(false);
+                return;
+              }
+            }
+            resolve(false);
+          }, 'image/png');
+        };
+        img.onerror = () => {
+          URL.revokeObjectURL(objectUrl);
+          resolve(false);
+        };
+        img.src = objectUrl;
+      });
+    } catch {
+      return false;
+    }
+  };
+
   const handleShareWithPhoto = async () => {
     setSharingPhoto(true);
     trackInquiryClick(product, selectedVariant, quantity);
 
     try {
-      const rawImg = product.images?.[0]?.url || '/images/products/lg-refrigerator.jpg';
       const message = generateInquiryMessage({
         product,
         quantity,
         selectedVariant,
       });
 
-      // Try native file sharing (supported on Android Chrome, iOS Safari, macOS Safari)
-      if (typeof window !== 'undefined' && navigator.share && navigator.canShare) {
+      // 1. Native mobile share with file
+      if (typeof navigator !== 'undefined' && navigator.share && navigator.canShare) {
         const response = await fetch(rawImg);
         const blob = await response.blob();
-        const file = new File([blob], `${product.slug || 'product'}.jpg`, { type: blob.type || 'image/jpeg' });
+        const file = new File([blob], `${product.slug || 'product'}.jpg`, { type: 'image/jpeg' });
 
         if (navigator.canShare({ files: [file] })) {
           await navigator.share({
@@ -70,8 +114,15 @@ export const WhatsAppInquiryButton: React.FC<WhatsAppInquiryButtonProps> = ({
           return;
         }
       }
+
+      // 2. Desktop clipboard copy fallback
+      const copied = await copyPhotoToClipboard(rawImg);
+      if (copied) {
+        setPhotoCopiedToast(true);
+        setTimeout(() => setPhotoCopiedToast(false), 9000);
+      }
     } catch (err) {
-      console.log('Native file share dismissed or unsupported:', err);
+      console.log('Share handling error:', err);
     }
 
     // Direct WhatsApp chat fallback with prefilled details and photo link
@@ -129,6 +180,20 @@ export const WhatsAppInquiryButton: React.FC<WhatsAppInquiryButtonProps> = ({
   // Primary large CTA
   return (
     <div className="flex flex-col gap-2.5 w-full">
+      {/* Toast Notification when photo is copied */}
+      {photoCopiedToast && (
+        <div className="p-3 rounded-xl bg-emerald-50 border border-emerald-300 text-emerald-900 text-xs flex items-start gap-2 animate-in fade-in slide-in-from-top-2">
+          <Check className="w-4 h-4 text-emerald-600 shrink-0 mt-0.5" />
+          <div>
+            <strong className="font-bold">📸 Product Photo copied to clipboard!</strong>
+            <p className="text-[11px] text-emerald-700 mt-0.5">
+              In your WhatsApp chat, just press <strong>Ctrl + V</strong> (Paste) to attach this photo directly with your inquiry message.
+            </p>
+          </div>
+        </div>
+      )}
+
+      {/* Main WhatsApp Inquiry Button */}
       <a
         href={chatUrl}
         target="_blank"
@@ -151,15 +216,28 @@ export const WhatsAppInquiryButton: React.FC<WhatsAppInquiryButtonProps> = ({
       </a>
 
       {showPhotoShareOption && (
-        <button
-          type="button"
-          onClick={handleShareWithPhoto}
-          disabled={sharingPhoto}
-          className="inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl border border-emerald-600/30 bg-emerald-50/60 hover:bg-emerald-100/60 text-emerald-800 text-xs font-semibold transition-all active:scale-98"
-        >
-          <Camera className="w-4 h-4 text-[#128c4a]" />
-          <span>{sharingPhoto ? 'Preparing Photo & Details...' : 'Send with Photo Attached (Mobile WhatsApp)'}</span>
-        </button>
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+          <button
+            type="button"
+            onClick={handleShareWithPhoto}
+            disabled={sharingPhoto}
+            className="inline-flex items-center justify-center gap-1.5 px-3 py-2.5 rounded-xl border border-emerald-600/30 bg-emerald-50/70 hover:bg-emerald-100 text-emerald-900 text-xs font-semibold transition-all active:scale-98"
+            title="Copies photo to clipboard and opens WhatsApp (Mobile: shares photo file directly)"
+          >
+            <Camera className="w-4 h-4 text-[#128c4a]" />
+            <span>{sharingPhoto ? 'Preparing Photo...' : 'Inquire with Photo (Ctrl+V)'}</span>
+          </button>
+
+          <a
+            href={rawImg}
+            download={`${product.slug || 'product'}.jpg`}
+            className="inline-flex items-center justify-center gap-1.5 px-3 py-2.5 rounded-xl border border-slate-200 bg-slate-50 hover:bg-slate-100 text-slate-700 text-xs font-semibold transition-all"
+            title="Download product image to your device"
+          >
+            <Download className="w-3.5 h-3.5 text-slate-500" />
+            <span>Save Photo</span>
+          </a>
+        </div>
       )}
     </div>
   );
