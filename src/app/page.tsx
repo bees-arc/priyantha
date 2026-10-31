@@ -105,7 +105,7 @@ export default function HomePage() {
               <div className="relative rounded-2xl overflow-hidden border border-white/20 bg-gradient-to-b from-white/10 to-white/5 backdrop-blur-md p-6 shadow-2xl">
                 <div className="relative w-full rounded-xl overflow-hidden shadow-inner mb-5" style={{ paddingBottom: '75%', position: 'relative' }}>
                   <Image
-                    src="/api/placeholder?type=refrigerator&label=Showroom+Selection&w=800"
+                    src="/images/products/lg-refrigerator.jpg"
                     alt="Priyantha Trading Showroom Selection"
                     fill
                     priority

@@ -22,7 +22,14 @@ export const ProductCard: React.FC<ProductCardProps> = ({
     : product.subcategoryName?.toLowerCase().includes('tv') ? 'tv'
     : product.categorySlug?.includes('electronics') ? 'tv'
     : 'refrigerator';
-  const primaryImage = product.images?.[0]?.url || `/api/placeholder?type=${productType}&label=${encodeURIComponent(product.name)}&w=600`;
+  const fallbackImages: Record<string, string> = {
+    bicycle: '/images/products/tomahawk-bicycle.jpg',
+    mattress: '/images/products/arpico-mattress.jpg',
+    oven: '/images/products/mitsu-oven.jpg',
+    tv: '/images/products/smart-tv.jpg',
+    refrigerator: '/images/products/lg-refrigerator.jpg',
+  };
+  const primaryImage = product.images?.[0]?.url || fallbackImages[productType] || '/images/products/lg-refrigerator.jpg';
   const displaySpecs = product.specifications?.slice(0, 2) || [];
 
   return (

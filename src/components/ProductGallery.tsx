@@ -15,7 +15,7 @@ export const ProductGallery: React.FC<ProductGalleryProps> = ({ images, productN
     : [
         {
           id: 'placeholder',
-          url: `/api/placeholder?type=default&label=${encodeURIComponent(productName)}&w=800`,
+          url: '/images/products/lg-refrigerator.jpg',
           alt: productName,
         },
       ];

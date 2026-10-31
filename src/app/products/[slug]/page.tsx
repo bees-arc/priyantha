@@ -17,7 +17,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     };
   }
 
-  const primaryImage = product.images?.[0]?.url || `/api/placeholder?type=default&label=${encodeURIComponent(product.name)}&w=1200`;
+  const primaryImage = product.images?.[0]?.url || '/images/products/lg-refrigerator.jpg';
   const canonicalUrl = `https://priyantha-trading.lk/products/${product.slug}`;
 
   return {

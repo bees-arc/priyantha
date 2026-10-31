@@ -135,7 +135,7 @@
       "images": [
         {
           "id": "img-lg-ref-1",
-          "url": "/api/placeholder?type=refrigerator&label=LG+260L+Smart+Inverter+Refrigerator&w=800",
+          "url": "/images/products/lg-refrigerator.jpg",
           "alt": "LG 260L Smart Inverter Refrigerator Silver Finish",
           "isPrimary": true
         }
@@ -196,7 +196,7 @@
       "images": [
         {
           "id": "img-inn-ref-1",
-          "url": "/api/placeholder?type=refrigerator&label=Innovex+Inverter+Refrigerator+INR-240i&w=800",
+          "url": "/images/products/innovex-refrigerator.jpg",
           "alt": "Innovex Inverter Double Door Refrigerator",
           "isPrimary": true
         }
@@ -246,7 +246,7 @@
       "images": [
         {
           "id": "img-mitsu-oven-1",
-          "url": "/api/placeholder?type=oven&label=Mitsu+Benchtop+Electric+Oven&w=800",
+          "url": "/images/products/mitsu-oven.jpg",
           "alt": "Mitsu Electric Benchtop Oven",
           "isPrimary": true
         }
@@ -327,7 +327,7 @@
       "images": [
         {
           "id": "img-tv-1",
-          "url": "/api/placeholder?type=tv&label=32-inch+HD+LED+Television&w=800",
+          "url": "/images/products/smart-tv.jpg",
           "alt": "32-inch HD LED Television Display",
           "isPrimary": true
         }
@@ -382,7 +382,7 @@
       "images": [
         {
           "id": "img-bike-26",
-          "url": "/api/placeholder?type=bicycle&label=Tomahawk+GT-3XL+26-inch+Bicycle&w=800",
+          "url": "/images/products/tomahawk-bicycle.jpg",
           "alt": "Tomahawk GT-3XL 26 Mountain Bicycle",
           "isPrimary": true
         }
@@ -437,7 +437,7 @@
       "images": [
         {
           "id": "img-bike-24",
-          "url": "/api/placeholder?type=bicycle&label=Tomahawk+GT-3XL+24-inch+Bicycle&w=800",
+          "url": "/images/products/city-bicycle.jpg",
           "alt": "Tomahawk GT-3XL 24 Bicycle",
           "isPrimary": true
         }
@@ -486,7 +486,7 @@
       "images": [
         {
           "id": "img-matt-1",
-          "url": "/api/placeholder?type=mattress&label=Damro+Frestra+Spring+Mattress&w=800",
+          "url": "/images/products/arpico-mattress.jpg",
           "alt": "Spring & Foam Mattress Range with Quilted Finish",
           "isPrimary": true
         }
@@ -561,7 +561,7 @@
       "images": [
         {
           "id": "img-gas-1",
-          "url": "/api/placeholder?type=oven&label=Glass+Top+Double+Burner+Gas+Cooker&w=800",
+          "url": "/images/products/gas-cooker.jpg",
           "alt": "Glass-top Double Burner Gas Cooker",
           "isPrimary": true
         }
@@ -610,7 +610,7 @@
       "images": [
         {
           "id": "img-rc-1",
-          "url": "/api/placeholder?type=default&label=Automatic+Electric+Rice+Cooker&w=800",
+          "url": "/images/products/rice-cooker.jpg",
           "alt": "Automatic Electric Rice Cooker",
           "isPrimary": true
         }
@@ -655,7 +655,7 @@
       "images": [
         {
           "id": "img-inn-tv-1",
-          "url": "/api/placeholder?type=tv&label=Innovex+LED+Smart+Television&w=800",
+          "url": "/images/products/samsung-tv.jpg",
           "alt": "Innovex Television Display",
           "isPrimary": true
         }
@@ -697,7 +697,7 @@
       "images": [
         {
           "id": "img-fur-1",
-          "url": "/api/placeholder?type=default&label=Solid+Wood+Display+Cabinet&w=800",
+          "url": "/images/products/hero-appliances.jpg",
           "alt": "Wooden Storage Cabinet",
           "isPrimary": true
         }

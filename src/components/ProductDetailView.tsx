@@ -286,7 +286,7 @@ export const ProductDetailView: React.FC<ProductDetailViewProps> = ({
                 >
                   <div className="aspect-square relative rounded-xl bg-slate-50 overflow-hidden mb-3">
                     <img
-                      src={rel.images?.[0]?.url || `/api/placeholder?type=default&label=${encodeURIComponent(rel.name)}&w=400`}
+                      src={rel.images?.[0]?.url || '/images/products/lg-refrigerator.jpg'}
                       alt={rel.name}
                       className="w-full h-full object-cover group-hover:scale-105 transition-transform"
                     />
