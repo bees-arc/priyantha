@@ -1,5 +1,11 @@
 @import "tailwindcss";
 
+@theme {
+  --font-sans: var(--font-poppins), 'Poppins', sans-serif;
+  --font-serif: var(--font-poppins), 'Poppins', sans-serif;
+  --font-display: var(--font-poppins), 'Poppins', sans-serif;
+}
+
 @layer base {
   :root {
     --brand-primary: #14213d;
@@ -19,10 +25,14 @@
     --whatsapp-hover: #0e703b;
   }
 
-  body {
+  *, *::before, *::after {
+    font-family: var(--font-poppins), 'Poppins', sans-serif !important;
+  }
+
+  html, body {
     background-color: var(--background);
     color: var(--foreground);
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    font-family: var(--font-poppins), 'Poppins', sans-serif !important;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }

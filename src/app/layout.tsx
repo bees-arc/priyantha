@@ -76,7 +76,7 @@ export default function RootLayout({
       </head>
       <body
         suppressHydrationWarning
-        className="min-h-screen flex flex-col bg-white text-slate-900 antialiased selection:bg-[#14213d] selection:text-white"
+        className={`${poppins.className} ${poppins.variable} min-h-screen flex flex-col bg-white text-slate-900 antialiased selection:bg-[#14213d] selection:text-white font-sans`}
       >
         <Header
           categories={categories}
