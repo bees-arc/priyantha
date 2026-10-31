@@ -295,7 +295,7 @@ export default function AdminProductsPage() {
                         <div className="flex items-center gap-3">
                           <div className="w-10 h-10 rounded-lg bg-slate-100 overflow-hidden relative shrink-0">
                             <img
-                              src={product.images?.[0]?.url || `/api/placeholder?type=default&label=${encodeURIComponent(product.name)}&w=100`}
+                              src={product.images?.[0]?.url || '/images/products/lg-refrigerator.jpg'}
                               alt={product.name}
                               className="w-full h-full object-cover"
                             />
