@@ -42,8 +42,8 @@ export const Header: React.FC<HeaderProps> = ({
 
   return (
     <header className="sticky top-0 z-50 bg-white border-b border-slate-200/80 shadow-xs">
-      {/* Top verified announcement bar */}
-      <div className="bg-[#14213d] text-white text-xs py-2 px-4">
+      {/* Top verified announcement bar (Hidden on mobile) */}
+      <div className="hidden md:block bg-[#14213d] text-white text-xs py-2 px-4">
         <div className="max-w-7xl mx-auto flex flex-col sm:flex-row justify-between items-center gap-2 font-medium">
           <div className="flex items-center gap-2 text-center sm:text-left">
             <MapPin className="w-3.5 h-3.5 text-slate-300 shrink-0 hidden sm:inline" />
@@ -74,9 +74,9 @@ export const Header: React.FC<HeaderProps> = ({
 
       {/* Main navigation container */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-20 gap-4">
+        <div className="flex items-center justify-between h-14 md:h-20 gap-3">
           {/* Authentic Brand Wordmark */}
-          <div className="shrink-0 py-2">
+          <div className="shrink-0 py-1">
             <BrandWordmark />
           </div>
 
@@ -127,7 +127,8 @@ export const Header: React.FC<HeaderProps> = ({
           </nav>
 
           {/* Actions: Direct WhatsApp CTA & Mobile Menu Toggle */}
-          <div className="flex items-center gap-3">
+          <div className="flex items-center gap-2 sm:gap-3">
+            {/* Desktop WhatsApp CTA */}
             <a
               href={`https://wa.me/${whatsappNumber}?text=${encodeURIComponent(
                 'Hello Priyantha Trading Agencies! I would like to inquire about products at your Panadura showroom.'
@@ -140,12 +141,26 @@ export const Header: React.FC<HeaderProps> = ({
               <span>Inquire via WhatsApp</span>
             </a>
 
+            {/* Mobile WhatsApp Icon Button (Oakory cart icon equivalent) */}
+            <a
+              href={`https://wa.me/${whatsappNumber}?text=${encodeURIComponent(
+                'Hello Priyantha Trading Agencies! I would like to inquire about products at your Panadura showroom.'
+              )}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="sm:hidden relative w-9 h-9 rounded-full bg-emerald-50 text-[#128c4a] flex items-center justify-center border border-emerald-200/80 active:scale-95 transition-transform"
+              aria-label="Direct WhatsApp chat"
+            >
+              <MessageSquare className="w-4 h-4 fill-current" />
+              <span className="absolute -top-0.5 -right-0.5 w-2.5 h-2.5 rounded-full bg-emerald-500 border-2 border-white" />
+            </a>
+
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
               className="p-2 rounded-lg text-slate-700 hover:bg-slate-100 lg:hidden focus:outline-hidden"
               aria-label="Toggle navigation menu"
             >
-              {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+              {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
             </button>
           </div>
         </div>

@@ -245,31 +245,26 @@ export default function HomePage() {
       {/* Featured Products Section */}
       <section className="py-16 sm:py-20 bg-slate-50 border-y border-slate-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-col sm:flex-row justify-between items-start sm:items-end gap-4 mb-10">
+          <div className="flex items-center justify-between gap-4 mb-6 sm:mb-8">
             <div>
-              <div className="flex items-center gap-2 text-xs font-bold text-[#128c4a] tracking-wider uppercase mb-1">
-                <ShieldCheck className="w-3.5 h-3.5" />
-                <span>Verified Showroom Inventory</span>
-              </div>
-              <h2 className="font-serif text-2xl sm:text-3xl lg:text-4xl font-bold text-slate-900 tracking-tight">
-                Featured Showroom Products
+              <h2 className="text-xl sm:text-2xl lg:text-3xl font-bold text-slate-900 tracking-tight">
+                Popular Picks
               </h2>
-              <p className="text-sm text-slate-500 mt-1 max-w-xl">
-                Tap &ldquo;Inquire&rdquo; on any item to receive current prices, warranty coverage,
-                and availability directly on WhatsApp.
+              <p className="text-xs text-slate-500 mt-0.5 hidden sm:block">
+                Verified showroom inventory with manufacturer warranty & fast WhatsApp quotes.
               </p>
             </div>
 
             <Link
               href="/products"
-              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl border border-slate-200 bg-white hover:bg-slate-100 text-xs font-bold text-[#14213d] transition-colors shadow-xs"
+              className="inline-flex items-center gap-1 text-xs sm:text-sm font-semibold text-[#14213d] hover:text-[#24375a] transition-colors"
             >
-              <span>View Full Catalogue</span>
+              <span>View All</span>
               <ArrowRight className="w-3.5 h-3.5" />
             </Link>
           </div>
 
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-5">
             {featuredProducts.slice(0, 8).map((product) => (
               <ProductCard
                 key={product.id}
@@ -277,6 +272,27 @@ export default function HomePage() {
                 whatsappNumber={settings.whatsappNumber}
               />
             ))}
+          </div>
+
+          {/* Oakory Style 3-Column Trust Bar */}
+          <div className="mt-8 bg-white rounded-3xl border border-slate-100 p-4 sm:p-6 shadow-xs grid grid-cols-3 gap-2 text-center">
+            <div className="flex flex-col items-center justify-center p-1 sm:p-2">
+              <ShieldCheck className="w-5 h-5 text-slate-800 mb-1" />
+              <span className="text-[11px] sm:text-xs font-bold text-slate-900 leading-tight">Premium Quality</span>
+              <span className="text-[9px] sm:text-[10px] text-slate-400">Crafted to last</span>
+            </div>
+
+            <div className="flex flex-col items-center justify-center p-1 sm:p-2 border-x border-slate-100">
+              <Truck className="w-5 h-5 text-slate-800 mb-1" />
+              <span className="text-[11px] sm:text-xs font-bold text-slate-900 leading-tight">Safe Delivery</span>
+              <span className="text-[9px] sm:text-[10px] text-slate-400">Panadura & Islandwide</span>
+            </div>
+
+            <div className="flex flex-col items-center justify-center p-1 sm:p-2">
+              <MessageSquare className="w-5 h-5 text-emerald-600 mb-1" />
+              <span className="text-[11px] sm:text-xs font-bold text-slate-900 leading-tight">WhatsApp Quote</span>
+              <span className="text-[9px] sm:text-[10px] text-slate-400">Fast Showroom Reply</span>
+            </div>
           </div>
         </div>
       </section>
