@@ -10,6 +10,7 @@ import {
   Clock,
   Sparkles,
   ShoppingBag,
+  Truck,
 } from 'lucide-react';
 import { getBusinessSettings, getCategories, getProducts } from '@/lib/db';
 import { ProductCard } from '@/components/ProductCard';
@@ -23,8 +24,56 @@ export default function HomePage() {
 
   return (
     <div className="flex flex-col min-h-screen">
-      {/* Hero Section */}
-      <section className="relative bg-[#14213d] text-white overflow-hidden py-16 sm:py-24 lg:py-28">
+      {/* Mobile Oakory-Style Hero Banner */}
+      <section className="md:hidden px-4 pt-3 pb-2">
+        <div className="relative rounded-3xl overflow-hidden bg-gradient-to-br from-[#14213d] via-[#1b2b4d] to-[#24375a] text-white p-5 shadow-lg">
+          <div className="grid grid-cols-12 gap-3 items-center">
+            <div className="col-span-7 space-y-2">
+              <span className="text-[10px] font-bold uppercase tracking-wider text-emerald-300 bg-white/10 px-2 py-0.5 rounded-full inline-block">
+                Showroom Selection
+              </span>
+              <h2 className="text-lg font-bold leading-tight">
+                Crafted Living. <br />
+                Timeless Quality.
+              </h2>
+              <p className="text-[11px] text-slate-300 leading-snug line-clamp-2">
+                Discover quality appliances & bicycles that fit your life.
+              </p>
+              <div className="pt-1">
+                <Link
+                  href="/products"
+                  className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-white text-[#14213d] text-xs font-bold active:scale-95 transition-transform shadow-xs"
+                >
+                  <span>Shop Now</span>
+                  <ArrowRight className="w-3 h-3" />
+                </Link>
+              </div>
+            </div>
+
+            <div className="col-span-5 relative">
+              <div className="relative w-full aspect-square rounded-2xl overflow-hidden bg-white/10 backdrop-blur-xs border border-white/20 p-1">
+                <Image
+                  src="/images/products/lg-refrigerator.jpg"
+                  alt="LG Inverter Refrigerator"
+                  fill
+                  className="object-cover rounded-xl"
+                  priority
+                />
+              </div>
+            </div>
+          </div>
+
+          {/* Dots Indicator */}
+          <div className="flex items-center justify-center gap-1.5 pt-3">
+            <span className="w-5 h-1.5 rounded-full bg-white" />
+            <span className="w-1.5 h-1.5 rounded-full bg-white/40" />
+            <span className="w-1.5 h-1.5 rounded-full bg-white/40" />
+          </div>
+        </div>
+      </section>
+
+      {/* Desktop Hero Section */}
+      <section className="hidden md:block relative bg-[#14213d] text-white overflow-hidden py-16 sm:py-24 lg:py-28">
         {/* Subtle geometric pattern overlay */}
         <div className="absolute inset-0 opacity-10 bg-[radial-gradient(#ffffff_1px,transparent_1px)] [background-size:24px_24px] pointer-events-none" />
 

@@ -3,6 +3,7 @@ import { Poppins } from 'next/font/google';
 import './globals.css';
 import { Header } from '@/components/Header';
 import { Footer } from '@/components/Footer';
+import { BottomNav } from '@/components/BottomNav';
 import { getBusinessSettings, getCategories } from '@/lib/db';
 
 const poppins = Poppins({
@@ -86,7 +87,7 @@ export default function RootLayout({
           address={settings.address}
           announcementText={settings.announcementBar?.text}
         />
-        <main className="flex-1">{children}</main>
+        <main className="flex-1 pb-20 md:pb-0">{children}</main>
         <Footer
           whatsappNumber={settings.whatsappNumber}
           displayWhatsappNumber={settings.displayWhatsappNumber}
@@ -95,6 +96,7 @@ export default function RootLayout({
           email={settings.email}
           address={settings.address}
         />
+        <BottomNav whatsappNumber={settings.whatsappNumber} />
       </body>
     </html>
   );

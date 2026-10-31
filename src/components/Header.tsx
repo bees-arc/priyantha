@@ -3,7 +3,7 @@
 import React, { useState } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
-import { Search, Phone, MessageSquare, Menu, X, MapPin, ChevronRight } from 'lucide-react';
+import { Search, Phone, MessageSquare, Menu, X, MapPin, ChevronRight, SlidersHorizontal } from 'lucide-react';
 import { BrandWordmark } from './BrandWordmark';
 
 interface HeaderProps {
@@ -150,18 +150,45 @@ export const Header: React.FC<HeaderProps> = ({
           </div>
         </div>
 
-        {/* Mobile Search Input */}
-        <div className="md:hidden pb-3">
+        {/* Mobile Search & Category Pills (Oakory style) */}
+        <div className="md:hidden pb-3 pt-1 space-y-2.5">
           <form onSubmit={handleSearchSubmit} className="relative w-full">
+            <Search className="absolute left-3.5 top-3 w-4 h-4 text-slate-400" />
             <input
               type="text"
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              placeholder="Search catalogue..."
-              className="w-full pl-10 pr-4 py-2 rounded-lg bg-slate-100 text-sm border border-slate-200 focus:outline-hidden focus:bg-white text-slate-800"
+              placeholder="Search appliances, TVs, bikes..."
+              className="w-full pl-10 pr-10 py-2.5 rounded-full bg-slate-100 text-xs border border-transparent focus:outline-hidden focus:bg-white focus:border-[#14213d] text-slate-800 placeholder:text-slate-400"
             />
-            <Search className="absolute left-3.5 top-2.5 w-4 h-4 text-slate-400" />
+            <button
+              type="button"
+              onClick={() => router.push('/products')}
+              className="absolute right-3.5 top-3 text-slate-400 hover:text-slate-600"
+              title="Open filters"
+            >
+              <SlidersHorizontal className="w-4 h-4" />
+            </button>
           </form>
+
+          {/* Horizontal Swipeable Category Pills */}
+          <div className="flex items-center gap-1.5 overflow-x-auto pb-1 text-xs font-semibold scrollbar-none">
+            <Link
+              href="/products"
+              className="px-3.5 py-1.5 rounded-full bg-[#14213d] text-white shrink-0 active:scale-95 transition-transform"
+            >
+              All
+            </Link>
+            {categories.map((cat) => (
+              <Link
+                key={cat.slug}
+                href={`/categories/${cat.slug}`}
+                className="px-3.5 py-1.5 rounded-full bg-slate-100 text-slate-700 hover:bg-slate-200 shrink-0 active:scale-95 transition-transform"
+              >
+                {cat.name}
+              </Link>
+            ))}
+          </div>
         </div>
       </div>
 
