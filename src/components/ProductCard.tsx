@@ -18,8 +18,8 @@ export const ProductCard: React.FC<ProductCardProps> = ({
 }) => {
   const productType = product.categorySlug?.includes('bicycle') ? 'bicycle'
     : product.categorySlug?.includes('bedding') ? 'mattress'
-    : product.subcategorySlug?.includes('oven') || product.subcategoryName?.toLowerCase().includes('oven') ? 'oven'
-    : product.subcategorySlug?.includes('tv') || product.subcategoryName?.toLowerCase().includes('tv') ? 'tv'
+    : product.subcategoryName?.toLowerCase().includes('oven') ? 'oven'
+    : product.subcategoryName?.toLowerCase().includes('tv') ? 'tv'
     : product.categorySlug?.includes('electronics') ? 'tv'
     : 'refrigerator';
   const primaryImage = product.images?.[0]?.url || `/api/placeholder?type=${productType}&label=${encodeURIComponent(product.name)}&w=600`;
