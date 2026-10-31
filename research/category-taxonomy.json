@@ -1,0 +1,50 @@
+{
+  "version": "0.1-draft",
+  "generated": "2026-10-31",
+  "rule": "Only categories evidenced in official business materials. No filler categories.",
+  "categories": [
+    {
+      "slug": "electronics",
+      "name": "Electronics",
+      "status": "VERIFIED",
+      "subcategories": [
+        { "slug": "televisions", "name": "Televisions", "status": "VERIFIED", "evidence": ["cover photo (Innovex TV)", "photo grid (32\" LED TV boxes)"], "brands_seen": ["Innovex"] }
+      ]
+    },
+    {
+      "slug": "home-appliances",
+      "name": "Home Appliances",
+      "status": "VERIFIED",
+      "subcategories": [
+        { "slug": "refrigerators", "name": "Refrigerators", "status": "VERIFIED", "evidence": ["LG 260L flyer", "Innovex INR-240i flyer", "profile image"], "brands_seen": ["LG", "Innovex"] },
+        { "slug": "electric-ovens", "name": "Electric Ovens", "status": "VERIFIED", "evidence": ["two oven flyers"], "brands_seen": ["Mitsu"] },
+        { "slug": "gas-cookers", "name": "Gas Cookers", "status": "NEEDS_CONFIRMATION", "evidence": ["profile image collage only"], "brands_seen": [] },
+        { "slug": "rice-cookers", "name": "Rice Cookers", "status": "NEEDS_CONFIRMATION", "evidence": ["profile image collage only"], "brands_seen": [] }
+      ]
+    },
+    {
+      "slug": "bedding",
+      "name": "Bedding & Mattresses",
+      "status": "VERIFIED",
+      "subcategories": [
+        { "slug": "mattresses", "name": "Spring & Foam Mattresses", "status": "VERIFIED", "evidence": ["mattress flyer"], "brands_seen": [] }
+      ]
+    },
+    {
+      "slug": "bicycles",
+      "name": "Bicycles",
+      "status": "VERIFIED",
+      "subcategories": [
+        { "slug": "bicycles", "name": "Bicycles", "status": "VERIFIED", "evidence": ["two Tomahawk flyers", "profile image", "shop interior"], "brands_seen": ["Tomahawk"] }
+      ]
+    },
+    {
+      "slug": "furniture",
+      "name": "Furniture",
+      "status": "NEEDS_CONFIRMATION",
+      "subcategories": [],
+      "evidence": ["shop interior photo shows a wooden cabinet; unclear if for sale"],
+      "publish": false
+    }
+  ]
+}

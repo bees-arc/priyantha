@@ -1,0 +1,723 @@
+{
+  "settings": {
+    "id": "default",
+    "businessName": "Priyantha Trading Agencies (PVT) LTD",
+    "tagline": "Trusted Home Appliances, Electronics & Bicycles in Panadura",
+    "whatsappNumber": "94722451812",
+    "displayWhatsappNumber": "072 245 1812",
+    "telephone": "077 797 4777",
+    "landline": "038 223 2754",
+    "email": "priyanthatradingpip@gmail.com",
+    "address": "No: 388A Galle Road, Panadura, Sri Lanka",
+    "town": "Panadura",
+    "operatingHours": "Mon - Sat: 9:00 AM - 7:00 PM | Sunday: Closed / Call to confirm",
+    "brandColors": {
+      "primary": "#14213D",
+      "secondary": "#24375A",
+      "accent": "#E8EDF5"
+    },
+    "socialLinks": {
+      "facebook": "https://web.facebook.com/people/Priyantha-Trading-Agencies-PVT-LTD/61552388766179/"
+    },
+    "announcementBar": {
+      "enabled": true,
+      "text": "Visit our Showroom at 388A Galle Road, Panadura • Fast inquiries via WhatsApp 072 245 1812"
+    }
+  },
+  "categories": [
+    {
+      "id": "cat-home-appliances",
+      "name": "Home Appliances",
+      "slug": "home-appliances",
+      "description": "Energy-saving refrigerators, electric ovens, gas cookers, and daily household essentials.",
+      "iconName": "Refrigerator",
+      "sortOrder": 1,
+      "isActive": true,
+      "subcategories": [
+        {
+          "id": "sub-refrigerators",
+          "name": "Refrigerators",
+          "slug": "refrigerators",
+          "description": "Inverter & Smart double door refrigerators"
+        },
+        {
+          "id": "sub-electric-ovens",
+          "name": "Electric Ovens",
+          "slug": "electric-ovens",
+          "description": "Benchtop electric ovens from 18L to 60L"
+        },
+        {
+          "id": "sub-gas-cookers",
+          "name": "Gas Cookers",
+          "slug": "gas-cookers",
+          "description": "Glass-top double burner cookers"
+        },
+        {
+          "id": "sub-rice-cookers",
+          "name": "Rice Cookers",
+          "slug": "rice-cookers",
+          "description": "Automatic keep-warm rice cookers"
+        }
+      ]
+    },
+    {
+      "id": "cat-electronics",
+      "name": "Electronics & TV",
+      "slug": "electronics",
+      "description": "High-definition LED televisions and home entertainment systems.",
+      "iconName": "Tv",
+      "sortOrder": 2,
+      "isActive": true,
+      "subcategories": [
+        {
+          "id": "sub-televisions",
+          "name": "Televisions",
+          "slug": "televisions",
+          "description": "Smart & LED TVs with manufacturer warranty"
+        }
+      ]
+    },
+    {
+      "id": "cat-bicycles",
+      "name": "Bicycles",
+      "slug": "bicycles",
+      "description": "Quality mountain and city bicycles from Tomahawk and leading manufacturers.",
+      "iconName": "Bike",
+      "sortOrder": 3,
+      "isActive": true,
+      "subcategories": [
+        {
+          "id": "sub-bicycles-standard",
+          "name": "Mountain & City Bikes",
+          "slug": "mountain-bikes",
+          "description": "24-inch and 26-inch performance bicycles"
+        }
+      ]
+    },
+    {
+      "id": "cat-bedding",
+      "name": "Bedding & Mattresses",
+      "slug": "bedding",
+      "description": "Comfort spring and form mattresses for quality sleep and orthopedic support.",
+      "iconName": "Bed",
+      "sortOrder": 4,
+      "isActive": true,
+      "subcategories": [
+        {
+          "id": "sub-mattresses",
+          "name": "Spring & Form Mattresses",
+          "slug": "mattresses",
+          "description": "Multi-layer durable mattresses"
+        }
+      ]
+    }
+  ],
+  "products": [
+    {
+      "id": "prod-001",
+      "name": "LG 260L Smart Inverter Double Door Refrigerator",
+      "slug": "lg-260l-smart-inverter-refrigerator",
+      "sku": "PTA-REF-LG260",
+      "description": "Energy-efficient LG double door refrigerator powered by Smart Inverter Compressor. Features multi-air flow cooling, toughened glass shelves, and premium silver finish.",
+      "categoryId": "cat-home-appliances",
+      "categorySlug": "home-appliances",
+      "categoryName": "Home Appliances",
+      "subcategoryId": "sub-refrigerators",
+      "subcategoryName": "Refrigerators",
+      "brand": "LG",
+      "model": "GL-K272SLBB",
+      "price": 159900,
+      "originalPrice": 199900,
+      "priceVisibility": "ask_for_price",
+      "availability": "in_stock",
+      "status": "published",
+      "featured": true,
+      "images": [
+        {
+          "id": "img-lg-ref-1",
+          "url": "/api/placeholder?type=refrigerator&label=LG+260L+Smart+Inverter+Refrigerator&w=800",
+          "alt": "LG 260L Smart Inverter Refrigerator Silver Finish",
+          "isPrimary": true
+        }
+      ],
+      "specifications": [
+        {
+          "id": "spec-1",
+          "name": "Capacity",
+          "value": "260 Litres"
+        },
+        {
+          "id": "spec-2",
+          "name": "Compressor",
+          "value": "Smart Inverter Compressor"
+        },
+        {
+          "id": "spec-3",
+          "name": "Door Type",
+          "value": "Double Door"
+        },
+        {
+          "id": "spec-4",
+          "name": "Warranty",
+          "value": "10 Years on Compressor (Abans Warranty)"
+        },
+        {
+          "id": "spec-5",
+          "name": "Finish",
+          "value": "Premium Shiny Silver"
+        }
+      ],
+      "variants": [],
+      "provenance": {
+        "source": "Facebook Product Flyer (Abans 10Y Warranty badge, GL-K272SLBB)",
+        "verificationStatus": "VERIFIED",
+        "notes": "Price marked ask_for_price to ensure customer receives current real-time showroom quote."
+      },
+      "createdAt": "2026-10-31T00:00:00.000Z",
+      "updatedAt": "2026-10-31T00:00:00.000Z"
+    },
+    {
+      "id": "prod-002",
+      "name": "Innovex Inverter Refrigerator INR-240i",
+      "slug": "innovex-inverter-refrigerator-inr-240i",
+      "sku": "PTA-REF-INN240",
+      "description": "Innovex Inverter technology refrigerator engineered for optimal Sri Lankan power conditions with reliable cooling performance and 10 year warranty.",
+      "categoryId": "cat-home-appliances",
+      "categorySlug": "home-appliances",
+      "categoryName": "Home Appliances",
+      "subcategoryId": "sub-refrigerators",
+      "subcategoryName": "Refrigerators",
+      "brand": "Innovex",
+      "model": "INR-240i",
+      "priceVisibility": "ask_for_price",
+      "availability": "in_stock",
+      "status": "published",
+      "featured": true,
+      "images": [
+        {
+          "id": "img-inn-ref-1",
+          "url": "/api/placeholder?type=refrigerator&label=Innovex+Inverter+Refrigerator+INR-240i&w=800",
+          "alt": "Innovex Inverter Double Door Refrigerator",
+          "isPrimary": true
+        }
+      ],
+      "specifications": [
+        {
+          "id": "spec-1",
+          "name": "Technology",
+          "value": "Digital Inverter Cooling"
+        },
+        {
+          "id": "spec-2",
+          "name": "Model",
+          "value": "INR-240i"
+        },
+        {
+          "id": "spec-3",
+          "name": "Warranty",
+          "value": "10-Year Warranty"
+        }
+      ],
+      "variants": [],
+      "provenance": {
+        "source": "Facebook Product Flyer (Damro / Innovex 10 Year badge)",
+        "verificationStatus": "VERIFIED"
+      },
+      "createdAt": "2026-10-31T00:00:00.000Z",
+      "updatedAt": "2026-10-31T00:00:00.000Z"
+    },
+    {
+      "id": "prod-003",
+      "name": "Mitsu Multi-Capacity Benchtop Electric Oven",
+      "slug": "mitsu-benchtop-electric-oven",
+      "sku": "PTA-OVN-MITSU",
+      "description": "Heavy duty Mitsu electric oven with rotisserie and multi-stage heating elements. Ideal for home baking, roasting, and toasting.",
+      "categoryId": "cat-home-appliances",
+      "categorySlug": "home-appliances",
+      "categoryName": "Home Appliances",
+      "subcategoryId": "sub-electric-ovens",
+      "subcategoryName": "Electric Ovens",
+      "brand": "Mitsu",
+      "model": "MEO Series",
+      "priceVisibility": "ask_for_price",
+      "availability": "in_stock",
+      "status": "published",
+      "featured": true,
+      "images": [
+        {
+          "id": "img-mitsu-oven-1",
+          "url": "/api/placeholder?type=oven&label=Mitsu+Benchtop+Electric+Oven&w=800",
+          "alt": "Mitsu Electric Benchtop Oven",
+          "isPrimary": true
+        }
+      ],
+      "specifications": [
+        {
+          "id": "spec-1",
+          "name": "Brand",
+          "value": "Mitsu"
+        },
+        {
+          "id": "spec-2",
+          "name": "Warranty",
+          "value": "1 Year Comprehensive Warranty"
+        },
+        {
+          "id": "spec-3",
+          "name": "Heating Functions",
+          "value": "Bake, Broil, Toast, Rotisserie"
+        },
+        {
+          "id": "spec-4",
+          "name": "Available Capacities",
+          "value": "18L, 25L, 30L, 45L, 60L"
+        }
+      ],
+      "variants": [
+        {
+          "id": "var-18l",
+          "name": "Capacity",
+          "value": "18 Litres"
+        },
+        {
+          "id": "var-25l",
+          "name": "Capacity",
+          "value": "25 Litres"
+        },
+        {
+          "id": "var-30l",
+          "name": "Capacity",
+          "value": "30 Litres"
+        },
+        {
+          "id": "var-45l",
+          "name": "Capacity",
+          "value": "45 Litres"
+        },
+        {
+          "id": "var-60l",
+          "name": "Capacity",
+          "value": "60 Litres"
+        }
+      ],
+      "provenance": {
+        "source": "Facebook Mitsu Oven Flyer with 1 Year Warranty badge",
+        "verificationStatus": "VERIFIED"
+      },
+      "createdAt": "2026-10-31T00:00:00.000Z",
+      "updatedAt": "2026-10-31T00:00:00.000Z"
+    },
+    {
+      "id": "prod-004",
+      "name": "32-inch HD LED Television New Arrival",
+      "slug": "32-inch-hd-led-television",
+      "sku": "PTA-TV-32LED",
+      "description": "Crisp High-Definition 32-inch LED Television with vibrant color display, USB media playback, HDMI connectivity, and manufacturer warranty.",
+      "categoryId": "cat-electronics",
+      "categorySlug": "electronics",
+      "categoryName": "Electronics & TV",
+      "subcategoryId": "sub-televisions",
+      "subcategoryName": "Televisions",
+      "brand": "Innovex / Multi-brand",
+      "price": 33975,
+      "priceVisibility": "ask_for_price",
+      "availability": "in_stock",
+      "status": "published",
+      "featured": true,
+      "images": [
+        {
+          "id": "img-tv-1",
+          "url": "/api/placeholder?type=tv&label=32-inch+HD+LED+Television&w=800",
+          "alt": "32-inch HD LED Television Display",
+          "isPrimary": true
+        }
+      ],
+      "specifications": [
+        {
+          "id": "spec-1",
+          "name": "Screen Size",
+          "value": "32 Inch"
+        },
+        {
+          "id": "spec-2",
+          "name": "Display Type",
+          "value": "HD LED Display"
+        },
+        {
+          "id": "spec-3",
+          "name": "Connectivity",
+          "value": "HDMI x 2, USB Media, AV Input"
+        },
+        {
+          "id": "spec-4",
+          "name": "Audio",
+          "value": "Stereo Built-in Speakers"
+        }
+      ],
+      "variants": [],
+      "provenance": {
+        "source": "Facebook Store New Arrival Stacked TV Box photo with 33,975 price label",
+        "verificationStatus": "VERIFIED"
+      },
+      "createdAt": "2026-10-31T00:00:00.000Z",
+      "updatedAt": "2026-10-31T00:00:00.000Z"
+    },
+    {
+      "id": "prod-005",
+      "name": "Tomahawk GT-3XL 26-inch Performance Bicycle",
+      "slug": "tomahawk-gt-3xl-26-bicycle",
+      "sku": "PTA-BIK-TOM26",
+      "description": "Original Tomahawk GT-3XL 26-inch bicycle engineered for smooth daily riding, sturdy frame geometry, high-grip tyres, and responsive front suspension.",
+      "categoryId": "cat-bicycles",
+      "categorySlug": "bicycles",
+      "categoryName": "Bicycles",
+      "subcategoryId": "sub-bicycles-standard",
+      "subcategoryName": "Mountain & City Bikes",
+      "brand": "Tomahawk",
+      "model": "GT-3XL 26",
+      "priceVisibility": "ask_for_price",
+      "availability": "in_stock",
+      "status": "published",
+      "featured": true,
+      "images": [
+        {
+          "id": "img-bike-26",
+          "url": "/api/placeholder?type=bicycle&label=Tomahawk+GT-3XL+26-inch+Bicycle&w=800",
+          "alt": "Tomahawk GT-3XL 26 Mountain Bicycle",
+          "isPrimary": true
+        }
+      ],
+      "specifications": [
+        {
+          "id": "spec-1",
+          "name": "Brand",
+          "value": "Tomahawk"
+        },
+        {
+          "id": "spec-2",
+          "name": "Model",
+          "value": "GT-3XL 26"
+        },
+        {
+          "id": "spec-3",
+          "name": "Wheel Size",
+          "value": "26 Inches"
+        },
+        {
+          "id": "spec-4",
+          "name": "Brake Type",
+          "value": "Front & Rear Mechanical Disc / V-Brake"
+        }
+      ],
+      "variants": [],
+      "provenance": {
+        "source": "Facebook Tomahawk Bicycle Flyer (Yellow)",
+        "verificationStatus": "VERIFIED"
+      },
+      "createdAt": "2026-10-31T00:00:00.000Z",
+      "updatedAt": "2026-10-31T00:00:00.000Z"
+    },
+    {
+      "id": "prod-006",
+      "name": "Tomahawk GT-3XL 24-inch Bicycle",
+      "slug": "tomahawk-gt-3xl-24-bicycle",
+      "sku": "PTA-BIK-TOM24",
+      "description": "Tomahawk GT-3XL 24-inch bicycle for youth and teenagers. Sturdy construction, lightweight alloy rims, and comfortable saddle.",
+      "categoryId": "cat-bicycles",
+      "categorySlug": "bicycles",
+      "categoryName": "Bicycles",
+      "subcategoryId": "sub-bicycles-standard",
+      "subcategoryName": "Mountain & City Bikes",
+      "brand": "Tomahawk",
+      "model": "GT-3XL 24",
+      "priceVisibility": "ask_for_price",
+      "availability": "in_stock",
+      "status": "published",
+      "featured": false,
+      "images": [
+        {
+          "id": "img-bike-24",
+          "url": "/api/placeholder?type=bicycle&label=Tomahawk+GT-3XL+24-inch+Bicycle&w=800",
+          "alt": "Tomahawk GT-3XL 24 Bicycle",
+          "isPrimary": true
+        }
+      ],
+      "specifications": [
+        {
+          "id": "spec-1",
+          "name": "Brand",
+          "value": "Tomahawk"
+        },
+        {
+          "id": "spec-2",
+          "name": "Model",
+          "value": "GT-3XL 24"
+        },
+        {
+          "id": "spec-3",
+          "name": "Wheel Size",
+          "value": "24 Inches"
+        }
+      ],
+      "variants": [],
+      "provenance": {
+        "source": "Facebook Tomahawk Bicycle Flyer (Mint Green)",
+        "verificationStatus": "VERIFIED"
+      },
+      "createdAt": "2026-10-31T00:00:00.000Z",
+      "updatedAt": "2026-10-31T00:00:00.000Z"
+    },
+    {
+      "id": "prod-007",
+      "name": "Damro Frestra Orthopedic Spring & Foam Mattress Collection",
+      "slug": "damro-frestra-spring-foam-mattress",
+      "sku": "PTA-BED-MATT",
+      "description": "Premium Sri Lankan spring and high-density foam mattresses offering balanced spine alignment and luxury jacquard quilted covers in diverse fabric patterns.",
+      "categoryId": "cat-bedding",
+      "categorySlug": "bedding",
+      "categoryName": "Bedding & Mattresses",
+      "subcategoryId": "sub-mattresses",
+      "subcategoryName": "Spring & Form Mattresses",
+      "brand": "Damro Frestra",
+      "priceVisibility": "ask_for_price",
+      "availability": "in_stock",
+      "status": "published",
+      "featured": true,
+      "images": [
+        {
+          "id": "img-matt-1",
+          "url": "/api/placeholder?type=mattress&label=Damro+Frestra+Spring+Mattress&w=800",
+          "alt": "Spring & Foam Mattress Range with Quilted Finish",
+          "isPrimary": true
+        }
+      ],
+      "specifications": [
+        {
+          "id": "spec-1",
+          "name": "Core Type",
+          "value": "High Tensile Spring & Density Foam"
+        },
+        {
+          "id": "spec-2",
+          "name": "Cover Material",
+          "value": "Quilted Jacquard Fabric"
+        },
+        {
+          "id": "spec-3",
+          "name": "Pattern Options",
+          "value": "Multiple woven geometric & floral prints"
+        },
+        {
+          "id": "spec-4",
+          "name": "Warranty",
+          "value": "Manufacturer Guarantee Available"
+        }
+      ],
+      "variants": [
+        {
+          "id": "var-single",
+          "name": "Size",
+          "value": "Single (3x6 ft)"
+        },
+        {
+          "id": "var-double",
+          "name": "Size",
+          "value": "Double (4x6 ft)"
+        },
+        {
+          "id": "var-queen",
+          "name": "Size",
+          "value": "Queen (5x6.5 ft)"
+        },
+        {
+          "id": "var-king",
+          "name": "Size",
+          "value": "King (6x6.5 ft)"
+        }
+      ],
+      "provenance": {
+        "source": "Facebook Mattress Flyer with Call Now 0777974777",
+        "verificationStatus": "VERIFIED"
+      },
+      "createdAt": "2026-10-31T00:00:00.000Z",
+      "updatedAt": "2026-10-31T00:00:00.000Z"
+    },
+    {
+      "id": "prod-008",
+      "name": "Tempered Glass Double Burner Gas Cooker",
+      "slug": "tempered-glass-double-burner-gas-cooker",
+      "sku": "PTA-APP-GAS2B",
+      "description": "Sleek black tempered-glass top gas stove featuring dual brass burners, auto-ignition, and energy-efficient blue flame burner heads.",
+      "categoryId": "cat-home-appliances",
+      "categorySlug": "home-appliances",
+      "categoryName": "Home Appliances",
+      "subcategoryId": "sub-gas-cookers",
+      "subcategoryName": "Gas Cookers",
+      "brand": "Standard Brand",
+      "priceVisibility": "ask_for_price",
+      "availability": "in_stock",
+      "status": "draft",
+      "featured": false,
+      "images": [
+        {
+          "id": "img-gas-1",
+          "url": "/api/placeholder?type=oven&label=Glass+Top+Double+Burner+Gas+Cooker&w=800",
+          "alt": "Glass-top Double Burner Gas Cooker",
+          "isPrimary": true
+        }
+      ],
+      "specifications": [
+        {
+          "id": "spec-1",
+          "name": "Burners",
+          "value": "2 Brass Flame Burners"
+        },
+        {
+          "id": "spec-2",
+          "name": "Top Material",
+          "value": "Toughened Tempered Glass"
+        },
+        {
+          "id": "spec-3",
+          "name": "Ignition",
+          "value": "Piezo Auto Ignition"
+        }
+      ],
+      "variants": [],
+      "provenance": {
+        "source": "Facebook Profile Picture Collage Asset",
+        "verificationStatus": "NEEDS_CONFIRMATION",
+        "notes": "Seen in avatar badge; draft until confirmed by owner."
+      },
+      "createdAt": "2026-10-31T00:00:00.000Z",
+      "updatedAt": "2026-10-31T00:00:00.000Z"
+    },
+    {
+      "id": "prod-009",
+      "name": "Automatic Electric Rice Cooker with Steamer",
+      "slug": "automatic-electric-rice-cooker",
+      "sku": "PTA-APP-RCOOK",
+      "description": "Compact automatic rice cooker with non-stick inner pot, keep-warm function, and steaming basket accessory for daily cooking.",
+      "categoryId": "cat-home-appliances",
+      "categorySlug": "home-appliances",
+      "categoryName": "Home Appliances",
+      "subcategoryId": "sub-rice-cookers",
+      "subcategoryName": "Rice Cookers",
+      "priceVisibility": "ask_for_price",
+      "availability": "in_stock",
+      "status": "draft",
+      "featured": false,
+      "images": [
+        {
+          "id": "img-rc-1",
+          "url": "/api/placeholder?type=default&label=Automatic+Electric+Rice+Cooker&w=800",
+          "alt": "Automatic Electric Rice Cooker",
+          "isPrimary": true
+        }
+      ],
+      "specifications": [
+        {
+          "id": "spec-1",
+          "name": "Function",
+          "value": "Cook & Auto Keep Warm"
+        },
+        {
+          "id": "spec-2",
+          "name": "Inner Pot",
+          "value": "Non-stick Food Grade Coating"
+        }
+      ],
+      "variants": [],
+      "provenance": {
+        "source": "Facebook Profile Picture Collage Asset",
+        "verificationStatus": "NEEDS_CONFIRMATION",
+        "notes": "Seen in avatar badge; draft until confirmed by owner."
+      },
+      "createdAt": "2026-10-31T00:00:00.000Z",
+      "updatedAt": "2026-10-31T00:00:00.000Z"
+    },
+    {
+      "id": "prod-010",
+      "name": "Innovex High-Definition LED Smart Series Television",
+      "slug": "innovex-hd-led-smart-television",
+      "sku": "PTA-TV-INNSMT",
+      "description": "Vivid LED display television with razor-thin bezel design, wide viewing angles, and rich stereo acoustics.",
+      "categoryId": "cat-electronics",
+      "categorySlug": "electronics",
+      "categoryName": "Electronics & TV",
+      "subcategoryId": "sub-televisions",
+      "subcategoryName": "Televisions",
+      "brand": "Innovex",
+      "priceVisibility": "ask_for_price",
+      "availability": "in_stock",
+      "status": "draft",
+      "featured": false,
+      "images": [
+        {
+          "id": "img-inn-tv-1",
+          "url": "/api/placeholder?type=tv&label=Innovex+LED+Smart+Television&w=800",
+          "alt": "Innovex Television Display",
+          "isPrimary": true
+        }
+      ],
+      "specifications": [
+        {
+          "id": "spec-1",
+          "name": "Brand",
+          "value": "Innovex"
+        },
+        {
+          "id": "spec-2",
+          "name": "Panel",
+          "value": "IPS LED Panel"
+        }
+      ],
+      "variants": [],
+      "provenance": {
+        "source": "Facebook Cover Photo (Innovex TV with sunflower field)",
+        "verificationStatus": "NEEDS_CONFIRMATION"
+      },
+      "createdAt": "2026-10-31T00:00:00.000Z",
+      "updatedAt": "2026-10-31T00:00:00.000Z"
+    },
+    {
+      "id": "prod-011",
+      "name": "Solid Wood Multi-Tier Display Storage Showcase",
+      "slug": "solid-wood-display-storage-showcase",
+      "sku": "PTA-FUR-CAB01",
+      "description": "Crafted wooden showcase cabinet with glass display shelving and lower storage cabinets.",
+      "categoryId": "cat-home-appliances",
+      "categorySlug": "home-appliances",
+      "categoryName": "Home Appliances",
+      "brand": "Local Craft",
+      "priceVisibility": "ask_for_price",
+      "availability": "ask_availability",
+      "status": "draft",
+      "featured": false,
+      "images": [
+        {
+          "id": "img-fur-1",
+          "url": "/api/placeholder?type=default&label=Solid+Wood+Display+Cabinet&w=800",
+          "alt": "Wooden Storage Cabinet",
+          "isPrimary": true
+        }
+      ],
+      "specifications": [
+        {
+          "id": "spec-1",
+          "name": "Material",
+          "value": "Natural Wood & Glass Shelving"
+        }
+      ],
+      "variants": [],
+      "provenance": {
+        "source": "Facebook Shop Interior Photo",
+        "verificationStatus": "NEEDS_CONFIRMATION",
+        "notes": "Seen in showroom floor photo; kept in draft."
+      },
+      "createdAt": "2026-10-31T00:00:00.000Z",
+      "updatedAt": "2026-10-31T00:00:00.000Z"
+    }
+  ],
+  "inquiries": []
+}
