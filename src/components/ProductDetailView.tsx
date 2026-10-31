@@ -219,6 +219,7 @@ export const ProductDetailView: React.FC<ProductDetailViewProps> = ({
                   businessWhatsappNumber={whatsappNumber}
                   label="Inquire on WhatsApp Now"
                   className="w-full text-base py-4"
+                  showPhotoShareOption={true}
                 />
 
                 <div className="flex items-center justify-center gap-1.5 text-xs text-slate-500">

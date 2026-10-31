@@ -18,24 +18,48 @@ export function generateInquiryMessage({
   baseUrl = 'https://priyantha-trading.lk',
 }: Omit<WhatsAppInquiryParams, 'businessWhatsappNumber'>): string {
   const canonicalUrl = `${baseUrl}/products/${product.slug}`;
+  const rawImg = product.images?.[0]?.url || '/images/products/lg-refrigerator.jpg';
+  const imageUrl = rawImg.startsWith('http') ? rawImg : `${baseUrl}${rawImg}`;
 
-  let message = `Hello Priyantha Trading Agencies! 👋\n`;
-  message += `I'm interested in the following product:\n\n`;
-  message += `Product: ${product.name}\n`;
+  let message = `*PRIYANTHA TRADING AGENCIES (PVT) LTD*\n`;
+  message += `📍 Showroom: 388A Galle Road, Panadura\n`;
+  message += `━━━━━━━━━━━━━━━━━━━━━\n`;
+  message += `*PRODUCT INQUIRY*\n\n`;
+  message += `📌 *Item:* ${product.name}\n`;
+  if (product.brand) {
+    message += `🏷️ *Brand:* ${product.brand}\n`;
+  }
+  if (product.model) {
+    message += `🔢 *Model:* ${product.model}\n`;
+  }
   if (product.sku) {
-    message += `Product Code: ${product.sku}\n`;
+    message += `📦 *SKU / Code:* ${product.sku}\n`;
+  }
+  if (product.priceVisibility === 'visible' && product.price) {
+    message += `💰 *Showroom Price:* Rs. ${product.price.toLocaleString('en-LK')}\n`;
+  } else {
+    message += `💰 *Price:* Inquire current showroom quotation\n`;
   }
   if (selectedVariant) {
-    message += `Variant: ${selectedVariant}\n`;
+    message += `⚙️ *Selected Option:* ${selectedVariant}\n`;
   }
   if (quantity > 1) {
-    message += `Quantity: ${quantity}\n`;
+    message += `🔢 *Quantity:* ${quantity}\n`;
   }
-  message += `Product Link: ${canonicalUrl}\n\n`;
-  message += `Could you please confirm:\n`;
-  message += `• Current price\n`;
-  message += `• Availability\n`;
-  message += `• Delivery options and charges\n\n`;
+
+  if (product.specifications && product.specifications.length > 0) {
+    message += `\n*Key Specifications:*\n`;
+    product.specifications.slice(0, 3).forEach((s) => {
+      message += `• ${s.name}: ${s.value}\n`;
+    });
+  }
+
+  message += `\n🔗 *Product Page:* ${canonicalUrl}\n`;
+  message += `🖼️ *Product Photo:* ${imageUrl}\n\n`;
+  message += `Please confirm:\n`;
+  message += `1. Current best price & stock availability\n`;
+  message += `2. Warranty details\n`;
+  message += `3. Delivery options to my location\n\n`;
   message += `Thank you!`;
 
   return message;
