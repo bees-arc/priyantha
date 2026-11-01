@@ -48,7 +48,7 @@ export default async function CategoryDetailPage({ params, searchParams }: Props
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Mobile Oakory-Style Screen 2 Header */}
         <div className="sm:hidden mb-4 pt-1">
-          <div className="flex items-center gap-3">
+          <div className="flex items-center gap-3 mb-3">
             <Link
               href="/"
               className="w-10 h-10 rounded-full bg-white border border-slate-200/90 flex items-center justify-center text-slate-700 active:scale-95 transition-transform shadow-xs shrink-0"
@@ -61,10 +61,42 @@ export default async function CategoryDetailPage({ params, searchParams }: Props
                 {category.name}
               </h1>
               <p className="text-xs text-slate-500">
-                {products.length} verified models in Panadura
+                {products.length} verified models in Panadura showroom
               </p>
             </div>
           </div>
+
+          {/* Mobile Subcategories Filter Tabs */}
+          {category.subcategories && category.subcategories.length > 0 && (
+            <div className="flex items-center gap-2 overflow-x-auto pb-1 pt-1 text-xs font-semibold scrollbar-none">
+              <Link
+                href={`/categories/${category.slug}`}
+                className={`px-4 py-2 rounded-full shrink-0 transition-colors ${
+                  !sub
+                    ? 'bg-[#14213d] text-white shadow-xs'
+                    : 'bg-white text-slate-700 border border-slate-200/80 hover:bg-slate-50'
+                }`}
+              >
+                All {category.name}
+              </Link>
+              {category.subcategories.map((sc) => {
+                const isActive = sub === sc.id || sub?.toLowerCase() === sc.name.toLowerCase();
+                return (
+                  <Link
+                    key={sc.id}
+                    href={`/categories/${category.slug}?sub=${encodeURIComponent(sc.id)}`}
+                    className={`px-4 py-2 rounded-full shrink-0 transition-colors ${
+                      isActive
+                        ? 'bg-[#14213d] text-white shadow-xs'
+                        : 'bg-white text-slate-700 border border-slate-200/80 hover:bg-slate-50'
+                    }`}
+                  >
+                    {sc.name}
+                  </Link>
+                );
+              })}
+            </div>
+          )}
         </div>
 
         {/* Desktop Breadcrumb */}
@@ -76,8 +108,8 @@ export default async function CategoryDetailPage({ params, searchParams }: Props
           <span className="text-[#14213d] font-semibold">{category.name}</span>
         </div>
 
-        {/* Category Header Card */}
-        <div className="bg-white rounded-3xl border border-slate-200 p-5 sm:p-10 mb-6 sm:mb-8 shadow-xs">
+        {/* Category Header Card (Desktop only) */}
+        <div className="hidden sm:block bg-white rounded-3xl border border-slate-200 p-8 sm:p-10 mb-8 shadow-xs">
           <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-6">
             <div>
               <span className="text-xs font-bold text-[#14213d] tracking-widest uppercase">

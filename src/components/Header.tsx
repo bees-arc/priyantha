@@ -2,7 +2,7 @@
 
 import React, { useState } from 'react';
 import Link from 'next/link';
-import { useRouter } from 'next/navigation';
+import { useRouter, usePathname } from 'next/navigation';
 import { Search, Phone, MessageSquare, Menu, X, MapPin, ChevronRight, SlidersHorizontal } from 'lucide-react';
 import { BrandWordmark } from './BrandWordmark';
 
@@ -29,6 +29,8 @@ export const Header: React.FC<HeaderProps> = ({
   announcementText = 'Panadura Showroom Open: No: 388A Galle Road • WhatsApp Inquiries: 072 245 1812',
 }) => {
   const router = useRouter();
+  const pathname = usePathname();
+  const isHomePage = pathname === '/';
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [searchQuery, setSearchQuery] = useState('');
 
@@ -165,47 +167,49 @@ export const Header: React.FC<HeaderProps> = ({
           </div>
         </div>
 
-        {/* Mobile Search & Filter (Oakory style - side by side!) */}
-        <div className="md:hidden pb-3 pt-1 space-y-2.5">
-          <div className="flex items-center gap-2.5">
-            <form onSubmit={handleSearchSubmit} className="relative flex-1">
-              <Search className="absolute left-4 top-3.5 w-4.5 h-4.5 text-slate-400" />
-              <input
-                type="text"
-                value={searchQuery}
-                onChange={(e) => setSearchQuery(e.target.value)}
-                placeholder="Search appliances, TVs, bikes..."
-                className="w-full pl-11 pr-4 py-3 rounded-2xl bg-slate-100/80 text-xs sm:text-sm border border-transparent focus:outline-hidden focus:bg-white focus:border-[#14213d] text-slate-800 placeholder:text-slate-400 transition-colors"
-              />
-            </form>
-            <Link
-              href="/products"
-              className="w-12 h-12 rounded-2xl bg-slate-100/80 hover:bg-slate-200 flex items-center justify-center text-slate-700 active:scale-95 transition-transform shrink-0"
-              title="Open filters"
-            >
-              <SlidersHorizontal className="w-5 h-5 text-slate-700" />
-            </Link>
-          </div>
-
-          {/* Horizontal Swipeable Category Pills (Oakory style) */}
-          <div className="flex items-center gap-2 overflow-x-auto pb-1 pt-0.5 text-xs font-semibold scrollbar-none">
-            <Link
-              href="/products"
-              className="px-4.5 py-2 rounded-full bg-[#14213d] text-white shrink-0 active:scale-95 transition-transform shadow-xs"
-            >
-              All
-            </Link>
-            {categories.map((cat) => (
+        {/* Mobile Search & Filter (Oakory style - Only shown on Home Screen!) */}
+        {isHomePage && (
+          <div className="md:hidden pb-3 pt-1 space-y-2.5">
+            <div className="flex items-center gap-2.5">
+              <form onSubmit={handleSearchSubmit} className="relative flex-1">
+                <Search className="absolute left-4 top-3.5 w-4.5 h-4.5 text-slate-400" />
+                <input
+                  type="text"
+                  value={searchQuery}
+                  onChange={(e) => setSearchQuery(e.target.value)}
+                  placeholder="Search appliances, TVs, bikes..."
+                  className="w-full pl-11 pr-4 py-3 rounded-2xl bg-slate-100/80 text-xs sm:text-sm border border-transparent focus:outline-hidden focus:bg-white focus:border-[#14213d] text-slate-800 placeholder:text-slate-400 transition-colors"
+                />
+              </form>
               <Link
-                key={cat.slug}
-                href={`/categories/${cat.slug}`}
-                className="px-4 py-2 rounded-full bg-slate-100/80 text-slate-700 hover:bg-slate-200 shrink-0 active:scale-95 transition-transform"
+                href="/products"
+                className="w-12 h-12 rounded-2xl bg-slate-100/80 hover:bg-slate-200 flex items-center justify-center text-slate-700 active:scale-95 transition-transform shrink-0"
+                title="Open filters"
               >
-                {cat.name}
+                <SlidersHorizontal className="w-5 h-5 text-slate-700" />
               </Link>
-            ))}
+            </div>
+
+            {/* Horizontal Swipeable Category Pills (Oakory style) */}
+            <div className="flex items-center gap-2 overflow-x-auto pb-1 pt-0.5 text-xs font-semibold scrollbar-none">
+              <Link
+                href="/products"
+                className="px-4.5 py-2 rounded-full bg-[#14213d] text-white shrink-0 active:scale-95 transition-transform shadow-xs"
+              >
+                All
+              </Link>
+              {categories.map((cat) => (
+                <Link
+                  key={cat.slug}
+                  href={`/categories/${cat.slug}`}
+                  className="px-4 py-2 rounded-full bg-slate-100/80 text-slate-700 hover:bg-slate-200 shrink-0 active:scale-95 transition-transform"
+                >
+                  {cat.name}
+                </Link>
+              ))}
+            </div>
           </div>
-        </div>
+        )}
       </div>
 
       {/* Mobile Drawer */}

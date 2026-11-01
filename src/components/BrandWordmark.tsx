@@ -29,7 +29,7 @@ export const BrandWordmark: React.FC<BrandWordmarkProps> = ({
           width={2172}
           height={724}
           priority={priority}
-          className={`h-8 sm:h-10 md:h-11 w-auto object-contain transition-transform group-hover:scale-[1.02] ${
+          className={`h-9 sm:h-10 md:h-12 w-auto object-contain transition-transform group-hover:scale-[1.02] ${
             isDark ? 'brightness-0 invert' : ''
           }`}
         />
