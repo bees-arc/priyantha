@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { Search, Filter, MessageSquare, ArrowUpDown } from 'lucide-react';
+import { Search, Filter, MessageSquare, ArrowUpDown, ArrowLeft } from 'lucide-react';
 import { getBusinessSettings, getCategories, getProducts } from '@/lib/db';
 import { ProductCard } from '@/components/ProductCard';
 
@@ -43,11 +43,36 @@ export default async function ProductsPage({
     return 0; // default order
   });
 
+  const activeCategoryName = params.category
+    ? categories.find((c) => c.slug === params.category)?.name || 'Products'
+    : 'Product Catalogue';
+
   return (
-    <div className="bg-slate-50 min-h-screen py-10 sm:py-14">
+    <div className="bg-slate-50 min-h-screen py-4 sm:py-10">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Header Breadcrumb & Title */}
-        <div className="mb-8">
+        {/* Mobile Oakory-Style Screen 2 Header */}
+        <div className="sm:hidden mb-4 pt-1">
+          <div className="flex items-center gap-3">
+            <Link
+              href="/"
+              className="w-10 h-10 rounded-full bg-white border border-slate-200/90 flex items-center justify-center text-slate-700 active:scale-95 transition-transform shadow-xs shrink-0"
+              aria-label="Back to home"
+            >
+              <ArrowLeft className="w-5 h-5" />
+            </Link>
+            <div className="min-w-0">
+              <h1 className="text-xl font-bold text-slate-900 leading-tight truncate">
+                {activeCategoryName}
+              </h1>
+              <p className="text-xs text-slate-500">
+                {sortedProducts.length} items in Panadura showroom
+              </p>
+            </div>
+          </div>
+        </div>
+
+        {/* Desktop Header Breadcrumb & Title */}
+        <div className="hidden sm:block mb-8">
           <div className="flex items-center gap-2 text-xs font-medium text-slate-500 mb-2">
             <Link href="/" className="hover:text-[#14213d]">Home</Link>
             <span>/</span>

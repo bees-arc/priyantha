@@ -44,10 +44,31 @@ export default async function CategoryDetailPage({ params, searchParams }: Props
   }
 
   return (
-    <div className="bg-slate-50 min-h-screen py-10 sm:py-14">
+    <div className="bg-slate-50 min-h-screen py-4 sm:py-14">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Breadcrumb */}
-        <div className="flex items-center gap-2 text-xs font-medium text-slate-500 mb-6">
+        {/* Mobile Oakory-Style Screen 2 Header */}
+        <div className="sm:hidden mb-4 pt-1">
+          <div className="flex items-center gap-3">
+            <Link
+              href="/"
+              className="w-10 h-10 rounded-full bg-white border border-slate-200/90 flex items-center justify-center text-slate-700 active:scale-95 transition-transform shadow-xs shrink-0"
+              aria-label="Back to home"
+            >
+              <ArrowLeft className="w-5 h-5" />
+            </Link>
+            <div className="min-w-0">
+              <h1 className="text-xl font-bold text-slate-900 leading-tight truncate">
+                {category.name}
+              </h1>
+              <p className="text-xs text-slate-500">
+                {products.length} verified models in Panadura
+              </p>
+            </div>
+          </div>
+        </div>
+
+        {/* Desktop Breadcrumb */}
+        <div className="hidden sm:flex items-center gap-2 text-xs font-medium text-slate-500 mb-6">
           <Link href="/" className="hover:text-[#14213d]">Home</Link>
           <span>/</span>
           <Link href="/products" className="hover:text-[#14213d]">Products</Link>
@@ -56,7 +77,7 @@ export default async function CategoryDetailPage({ params, searchParams }: Props
         </div>
 
         {/* Category Header Card */}
-        <div className="bg-white rounded-3xl border border-slate-200 p-8 sm:p-10 mb-8 shadow-xs">
+        <div className="bg-white rounded-3xl border border-slate-200 p-5 sm:p-10 mb-6 sm:mb-8 shadow-xs">
           <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-6">
             <div>
               <span className="text-xs font-bold text-[#14213d] tracking-widest uppercase">

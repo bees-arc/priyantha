@@ -137,11 +137,11 @@ export const WhatsAppInquiryButton: React.FC<WhatsAppInquiryButtonProps> = ({
         target="_blank"
         rel="noopener noreferrer"
         onClick={handleClick}
-        className={`inline-flex items-center justify-center w-10 h-10 rounded-full bg-[#128c4a] hover:bg-[#0e703b] text-white transition-all shadow-sm hover:shadow active:scale-95 ${className}`}
+        className={`inline-flex items-center justify-center w-8 h-8 rounded-full bg-white text-[#128c4a] border border-slate-200/80 shadow-xs hover:bg-emerald-50 hover:border-emerald-300 transition-all active:scale-95 ${className}`}
         title={`Inquire about ${product.name} on WhatsApp`}
         aria-label={`Inquire about ${product.name} on WhatsApp`}
       >
-        <MessageSquare className="w-5 h-5 fill-current" />
+        <MessageSquare className="w-4 h-4 fill-current shrink-0" />
       </a>
     );
   }
