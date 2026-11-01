@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState } from 'react';
-import { MessageSquare, ExternalLink, Check, Camera, Download, Image as ImageIcon } from 'lucide-react';
+import { MessageSquare, ExternalLink, Check } from 'lucide-react';
 import { Product } from '@/types';
 import { buildWhatsAppChatUrl, generateInquiryMessage, trackInquiryClick } from '@/lib/whatsapp';
 
@@ -13,7 +13,6 @@ interface WhatsAppInquiryButtonProps {
   variant?: 'primary' | 'secondary' | 'compact' | 'icon-only';
   className?: string;
   label?: string;
-  showPhotoShareOption?: boolean;
 }
 
 export const WhatsAppInquiryButton: React.FC<WhatsAppInquiryButtonProps> = ({
@@ -24,16 +23,10 @@ export const WhatsAppInquiryButton: React.FC<WhatsAppInquiryButtonProps> = ({
   variant = 'primary',
   className = '',
   label = 'Inquire on WhatsApp',
-  showPhotoShareOption = false,
 }) => {
   const [clicked, setClicked] = useState(false);
-  const [sharingPhoto, setSharingPhoto] = useState(false);
-
-  const handleClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
-    trackInquiryClick(product, selectedVariant, quantity);
-    setClicked(true);
-    setTimeout(() => setClicked(false), 3000);
-  };
+  const [photoCopiedToast, setPhotoCopiedToast] = useState(false);
+  const rawImg = product.images?.[0]?.url || '/images/products/lg-refrigerator.jpg';
 
   const chatUrl = buildWhatsAppChatUrl({
     product,
@@ -41,9 +34,6 @@ export const WhatsAppInquiryButton: React.FC<WhatsAppInquiryButtonProps> = ({
     selectedVariant,
     businessWhatsappNumber,
   });
-
-  const [photoCopiedToast, setPhotoCopiedToast] = useState(false);
-  const rawImg = product.images?.[0]?.url || '/images/products/lg-refrigerator.jpg';
 
   const copyPhotoToClipboard = async (imgUrl: string): Promise<boolean> => {
     try {
@@ -87,9 +77,10 @@ export const WhatsAppInquiryButton: React.FC<WhatsAppInquiryButtonProps> = ({
     }
   };
 
-  const handleShareWithPhoto = async () => {
-    setSharingPhoto(true);
+  const handleInquiry = async (e: React.MouseEvent) => {
+    e.preventDefault();
     trackInquiryClick(product, selectedVariant, quantity);
+    setClicked(true);
 
     try {
       const message = generateInquiryMessage({
@@ -98,82 +89,80 @@ export const WhatsAppInquiryButton: React.FC<WhatsAppInquiryButtonProps> = ({
         selectedVariant,
       });
 
-      // 1. Native mobile share with file
+      // 1. Mobile native share with photo attachment if supported
       if (typeof navigator !== 'undefined' && navigator.share && navigator.canShare) {
-        const response = await fetch(rawImg);
-        const blob = await response.blob();
-        const file = new File([blob], `${product.slug || 'product'}.jpg`, { type: 'image/jpeg' });
+        try {
+          const response = await fetch(rawImg);
+          const blob = await response.blob();
+          const file = new File([blob], `${product.slug || 'product'}.jpg`, { type: 'image/jpeg' });
 
-        if (navigator.canShare({ files: [file] })) {
-          await navigator.share({
-            title: product.name,
-            text: message,
-            files: [file],
-          });
-          setSharingPhoto(false);
-          return;
+          if (navigator.canShare({ files: [file] })) {
+            await navigator.share({
+              title: product.name,
+              text: message,
+              files: [file],
+            });
+            setTimeout(() => setClicked(false), 2000);
+            return;
+          }
+        } catch {
+          // If user cancels share, proceed to open WhatsApp URL
         }
       }
 
-      // 2. Desktop clipboard copy fallback
+      // 2. Desktop: Copy product photo to clipboard so user can press Ctrl + V in chat
       const copied = await copyPhotoToClipboard(rawImg);
       if (copied) {
         setPhotoCopiedToast(true);
         setTimeout(() => setPhotoCopiedToast(false), 9000);
       }
     } catch (err) {
-      console.log('Share handling error:', err);
+      console.log('Inquiry photo preparation:', err);
     }
 
-    // Direct WhatsApp chat fallback with prefilled details and photo link
+    // Direct WhatsApp chat
     window.open(chatUrl, '_blank');
-    setSharingPhoto(false);
+    setTimeout(() => setClicked(false), 3000);
   };
 
   if (variant === 'icon-only') {
     return (
-      <a
-        href={chatUrl}
-        target="_blank"
-        rel="noopener noreferrer"
-        onClick={handleClick}
+      <button
+        type="button"
+        onClick={handleInquiry}
         className={`inline-flex items-center justify-center w-8 h-8 rounded-full bg-white text-[#128c4a] border border-slate-200/80 shadow-xs hover:bg-emerald-50 hover:border-emerald-300 transition-all active:scale-95 ${className}`}
         title={`Inquire about ${product.name} on WhatsApp`}
         aria-label={`Inquire about ${product.name} on WhatsApp`}
       >
         <MessageSquare className="w-4 h-4 fill-current shrink-0" />
-      </a>
+      </button>
     );
   }
 
   if (variant === 'compact') {
     return (
-      <a
-        href={chatUrl}
-        target="_blank"
-        rel="noopener noreferrer"
-        onClick={handleClick}
+      <button
+        type="button"
+        onClick={handleInquiry}
         className={`inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-[#128c4a] hover:bg-[#0e703b] text-white text-xs font-semibold tracking-wide transition-all active:scale-95 shadow-xs ${className}`}
       >
         <MessageSquare className="w-3.5 h-3.5 fill-current" />
         <span>{clicked ? 'Opening...' : 'Inquire'}</span>
-      </a>
+      </button>
     );
   }
 
   if (variant === 'secondary') {
     return (
-      <a
-        href={chatUrl}
-        target="_blank"
-        rel="noopener noreferrer"
-        onClick={handleClick}
+      <button
+        type="button"
+        onClick={handleInquiry}
         className={`inline-flex items-center justify-center gap-2 px-5 py-3 rounded-xl border-2 border-[#128c4a] text-[#128c4a] hover:bg-[#128c4a]/5 font-semibold text-sm transition-all active:scale-95 ${className}`}
       >
         <MessageSquare className="w-4 h-4" />
         <span>{clicked ? 'Opening WhatsApp...' : label}</span>
         <ExternalLink className="w-3.5 h-3.5 opacity-60" />
-      </a>
+      </button>
     );
   }
 
@@ -194,11 +183,9 @@ export const WhatsAppInquiryButton: React.FC<WhatsAppInquiryButtonProps> = ({
       )}
 
       {/* Main WhatsApp Inquiry Button */}
-      <a
-        href={chatUrl}
-        target="_blank"
-        rel="noopener noreferrer"
-        onClick={handleClick}
+      <button
+        type="button"
+        onClick={handleInquiry}
         className={`inline-flex items-center justify-center gap-2.5 px-6 py-3.5 rounded-xl bg-[#128c4a] hover:bg-[#0e703b] text-white font-semibold text-base transition-all shadow-md hover:shadow-lg active:scale-98 ${className}`}
       >
         {clicked ? (
@@ -213,32 +200,7 @@ export const WhatsAppInquiryButton: React.FC<WhatsAppInquiryButtonProps> = ({
             <ExternalLink className="w-4 h-4 opacity-75" />
           </>
         )}
-      </a>
-
-      {showPhotoShareOption && (
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
-          <button
-            type="button"
-            onClick={handleShareWithPhoto}
-            disabled={sharingPhoto}
-            className="inline-flex items-center justify-center gap-1.5 px-3 py-2.5 rounded-xl border border-emerald-600/30 bg-emerald-50/70 hover:bg-emerald-100 text-emerald-900 text-xs font-semibold transition-all active:scale-98"
-            title="Copies photo to clipboard and opens WhatsApp (Mobile: shares photo file directly)"
-          >
-            <Camera className="w-4 h-4 text-[#128c4a]" />
-            <span>{sharingPhoto ? 'Preparing Photo...' : 'Inquire with Photo (Ctrl+V)'}</span>
-          </button>
-
-          <a
-            href={rawImg}
-            download={`${product.slug || 'product'}.jpg`}
-            className="inline-flex items-center justify-center gap-1.5 px-3 py-2.5 rounded-xl border border-slate-200 bg-slate-50 hover:bg-slate-100 text-slate-700 text-xs font-semibold transition-all"
-            title="Download product image to your device"
-          >
-            <Download className="w-3.5 h-3.5 text-slate-500" />
-            <span>Save Photo</span>
-          </a>
-        </div>
-      )}
+      </button>
     </div>
   );
 };
